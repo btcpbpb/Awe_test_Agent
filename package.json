@@ -1,0 +1,52 @@
+{
+  "name": "awe-test-agent",
+  "version": "1.0.0",
+  "description": "AI 驱动的 Web UI 自动化测试框架（Playwright + Midscene + Vitest）",
+  "main": "core/index.ts",
+  "scripts": {
+    "test": "node scripts/run-test.js",
+    "test:failed": "node scripts/run-test.js --failed",
+    "test:smoke": "node scripts/run-test.js --tagsFilter=smoke",
+    "test:p0": "node scripts/run-test.js --tagsFilter=p0",
+    "test:tags": "npx vitest run --listTags",
+    "test:auth": "node scripts/run-test.js projects/testerhome/tests/auth/login.test.ts",
+    "test:topics": "node scripts/run-test.js projects/testerhome/tests/topics/browse-topics.test.ts",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
+    "test:debug": "DEBUG=true node scripts/run-test.js",
+    "test:headless": "HEADLESS=true node scripts/run-test.js",
+    "test:report": "ALLURE_SERVE=1 node scripts/run-test.js",
+    "auth": "node scripts/auth-login.js",
+    "agent": "node scripts/run-cursor-agent.js",
+    "report": "node scripts/allure-report.js",
+    "report:save": "node scripts/save-report.js",
+    "report:open": "node scripts/open-report.js",
+    "stats:fallback": "node scripts/stats-fallback.js",
+    "check:env": "node scripts/check-env.js",
+    "cases:validate": "tsx scripts/validate-cases.ts --write-manifest",
+    "cases:check": "tsx scripts/validate-cases.ts",
+    "cases:query": "tsx scripts/query-cases.ts"
+  },
+  "keywords": ["playwright", "midscene", "ai-testing", "vitest", "e2e"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@midscene/web": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.48.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@vitest/ui": "^4.1.2",
+    "allure-js-commons": "^3.7.1",
+    "allure-vitest": "^3.7.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  },
+  "optionalDependencies": {
+    "@cursor/sdk": "^1.0.13"
+  }
+}

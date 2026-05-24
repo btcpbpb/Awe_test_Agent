@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "project": "testerhome",
+  "generatedAt": "2026-05-24T17:08:36.798Z",
+  "cases": [
+    {
+      "id": "testerhome-auth-错误密码登录失败并显示错误提示",
+      "title": "错误密码登录失败并显示错误提示",
+      "file": "projects/testerhome/tests/auth/login.test.ts",
+      "describe": "TesterHome 登录功能",
+      "tags": [
+        "smoke",
+        "auth",
+        "p1"
+      ],
+      "priority": "P1",
+      "stability": "stable",
+      "module": "auth"
+    },
+    {
+      "id": "testerhome-auth-登录后验证页面显示草稿-12-篇",
+      "title": "登录后验证页面显示草稿 12 篇",
+      "file": "projects/testerhome/tests/auth/verify-draft-count.test.ts",
+      "describe": "验证草稿数量",
+      "tags": [
+        "smoke",
+        "auth",
+        "p1"
+      ],
+      "priority": "P1",
+      "stability": "stable",
+      "module": "auth"
+    },
+    {
+      "id": "testerhome-auth-正确账号密码可以登录成功",
+      "title": "正确账号密码可以登录成功",
+      "file": "projects/testerhome/tests/auth/login.test.ts",
+      "describe": "TesterHome 登录功能",
+      "tags": [
+        "smoke",
+        "auth",
+        "p0"
+      ],
+      "priority": "P0",
+      "stability": "stable",
+      "module": "auth"
+    },
+    {
+      "id": "testerhome-topics-点击话题可以进入详情页",
+      "title": "点击话题可以进入详情页",
+      "file": "projects/testerhome/tests/topics/browse-topics.test.ts",
+      "describe": "TesterHome 话题浏览",
+      "tags": [
+        "smoke",
+        "topics",
+        "p0"
+      ],
+      "priority": "P0",
+      "stability": "stable",
+      "module": "topics"
+    },
+    {
+      "id": "testerhome-topics-话题列表页可以正常加载并展示话题",
+      "title": "话题列表页可以正常加载并展示话题",
+      "file": "projects/testerhome/tests/topics/browse-topics.test.ts",
+      "describe": "TesterHome 话题浏览",
+      "tags": [
+        "smoke",
+        "topics",
+        "p0"
+      ],
+      "priority": "P0",
+      "stability": "stable",
+      "module": "topics"
+    },
+    {
+      "id": "testerhome-topics-能模糊搜索到指定标题的帖子",
+      "title": "能模糊搜索到指定标题的帖子",
+      "file": "projects/testerhome/tests/topics/search-topic-fuzzy.test.ts",
+      "describe": "模糊检索帖子标题",
+      "tags": [
+        "search",
+        "topics",
+        "p0"
+      ],
+      "priority": "P0",
+      "stability": "stable",
+      "module": "topics"
+    },
+    {
+      "id": "testerhome-topics-搜索话题关键词能返回相关结果",
+      "title": "搜索话题关键词能返回相关结果",
+      "file": "projects/testerhome/tests/topics/browse-topics.test.ts",
+      "describe": "TesterHome 话题浏览",
+      "tags": [
+        "search",
+        "topics",
+        "p1"
+      ],
+      "priority": "P1",
+      "stability": "stable",
+      "module": "topics"
+    },
+    {
+      "id": "testerhome-topics-用户可以在发布话题页面填写标题",
+      "title": "用户可以在发布话题页面填写标题",
+      "file": "projects/testerhome/tests/topics/publish-topic.test.ts",
+      "describe": "创建新话题",
+      "tags": [
+        "smoke",
+        "topics",
+        "p0"
+      ],
+      "priority": "P0",
+      "stability": "stable",
+      "module": "topics"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+
+# 测试产物
+allure-results/
+allure-report/
+test-results/
+
+# 登录状态（包含 Cookie，勿提交）
+projects/*/.auth-state.json
+
+# 环境变量（包含 API Key，勿提交）
+.env
+
+# Agent 运行时产物
+skills/ui-automation/artifacts/_analysis.md
+skills/ui-automation/artifacts/_verification.md
+skills/ui-automation/artifacts/_verification.json
+skills/ui-automation/artifacts/_curation.md
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.swp

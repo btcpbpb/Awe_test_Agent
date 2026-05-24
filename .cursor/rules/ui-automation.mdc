@@ -1,0 +1,26 @@
+---
+description: UI 自动化测试必须使用 Cursor 智能体流水线（默认编排模式）
+globs:
+  - projects/**/tests/**
+  - projects/**/pages/**
+  - projects/**/services/**
+  - projects/**/components/**
+  - skills/ui-automation/**
+alwaysApply: false
+---
+
+# UI Automation — Cursor Agent 默认编排
+
+本仓库 `AI_ORCHESTRATOR` 默认为 **cursor**。处理 UI 自动化相关任务时：
+
+1. **先读** `AGENTS.md` 与 `skills/ui-automation/SKILL.md`
+2. **再读** `skills/ui-automation/cursor-orchestration.md`（Task 工具调度方式）
+3. 使用 **Task 工具**按顺序调度子智能体，禁止主 Agent 独自完成全流程：
+   - `explore` → analyzer
+   - `generalPurpose` → implementer → verifier → curator（通过后）
+4. Artifacts 写入 `skills/ui-automation/artifacts/`
+5. implementer 只改 `projects/<PROJECT>/`，禁止改 `core/`
+
+用户若显式要求「不用 Agent 流水线 / 手动模式」，可设 `AI_ORCHESTRATOR=manual` 或由用户直接改代码。
+
+浏览器运行时 AI 定位由 `AI_RUNTIME` 控制（默认 `midscene`），与编排层独立。
