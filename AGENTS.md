@@ -30,7 +30,8 @@
 - 实现：`skills/ui-automation/agents/implementer-agent.md`
 - 验证：`skills/ui-automation/agents/verifier-agent.md`
 - 沉淀：`skills/ui-automation/agents/curator-agent.md`
-- **Token 节约**：`skills/ui-automation/token-efficiency.md`
+
+### Cursor Task 调度（默认）
 
 1. 主 Agent 读取 `SKILL.md` + `cursor-orchestration.md`
 2. 用 **Task 工具**串行调度：`explore` → `generalPurpose` × 3

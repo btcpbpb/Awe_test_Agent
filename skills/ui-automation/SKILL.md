@@ -1,4 +1,4 @@
-﻿# UI 自动化测试 - Agent 编排 Skill
+# UI 自动化测试 - Agent 编排 Skill
 
 > **默认编排：Cursor 智能体**（`AI_ORCHESTRATOR=cursor`）
 > 浏览器运行时默认 Midscene（`AI_RUNTIME=midscene`），可切换。

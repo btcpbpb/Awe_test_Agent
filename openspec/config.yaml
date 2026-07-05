@@ -1,0 +1,55 @@
+schema: spec-driven
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+context: |
+  项目：Awe_test_Agent — AI 驱动的 Web UI 自动化测试框架。
+
+  技术栈：
+  - 语言：TypeScript（ESM，路径别名 @core/*）
+  - 浏览器：Playwright（chromium）
+  - AI 视觉定位运行时：Midscene（aiTap / aiInput，OpenAI 兼容 API）
+  - 测试运行器：Vitest
+  - 报告：Allure
+  - 运行环境：Windows + PowerShell / Node.js
+
+  双 AI 模式（编排层与运行时独立配置）：
+  - 编排层 AI_ORCHESTRATOR：默认 cursor（分析/写用例/验证/沉淀走 Cursor Task 子智能体流水线）；manual 时可直接改代码
+  - 运行时 AI_RUNTIME：默认 midscene（测试执行中的 aiTap/aiInput）；playwright 时纯 CSS 无 AI 定位
+
+  四层架构（严格单向依赖，禁止反向或跨层调用）：
+    tests/ → services/ → pages/ → components/
+  - components：继承 @core/base/BaseComponent，封装通用控件（Input/Button/Alert/Nav），禁止依赖 pages/services
+  - pages：继承 @core/base/BasePage，定义 readonly url，DOM 操作走 withFallback
+  - services：继承 @core/base/BaseService，持有 Page 实例，暴露语义化业务方法，返回类型化结果接口
+  - tests：使用 usePlaywright()/usePlaywrightWithAuth() fixture，只调用 services 层
+  - 只有 tests 层可以写 expect
+
+  withFallback 模式：Page/Component 的 DOM 操作必须走 withFallback（CSS 优先 → AI 兜底，命中率写入 JSONL 可观测）。首次实现默认 aiOnly: true。
+
+  多项目：projects/<PROJECT>/ 隔离各被测应用，_template 为新项目脚手架，通过 PROJECT=xxx 切换。示例被测站点为 TesterHome。core/ 为框架共享层。
+
+  Agent Skill 流水线：analyzer → implementer → verifier → curator，产物写入 skills/ui-automation/artifacts/。implementer 只允许修改 projects/<PROJECT>/，禁止改 core/。
+
+# Per-artifact rules (optional)
+rules:
+  proposal:
+    - 用中文撰写，聚焦「为什么」而非实现细节
+    - 明确 What（做什么）与 Why（动机/价值），并包含 Non-goals（不做什么）
+    - 说明改动影响到框架层（core/）还是项目层（projects/<PROJECT>/）
+  design:
+    - 遵守四层架构单向依赖：tests → services → pages → components，禁止反向/跨层
+    - 涉及 DOM 操作的方案必须使用 withFallback 模式，首次实现默认 aiOnly: true
+    - 明确编排模式（AI_ORCHESTRATOR）与运行时模式（AI_RUNTIME）的取值假设
+    - 复用现有 @core/base 基类与 projects/<PROJECT>/ 既有组件，避免重复造轮子
+    - expect 只出现在测试层的设计中
+  specs:
+    - 使用 Requirement / Scenario（WHEN/THEN）格式描述可验证行为
+    - 需求聚焦用户可观察的测试行为与预期结果，而非实现代码
+  tasks:
+    - 按四层架构由内向外拆分：components → pages → services → tests
+    - 每个任务粒度可独立完成与验证，尽量控制在小步范围内
+    - 明确任务所属层与目标文件路径（如 projects/<PROJECT>/pages/XxxPage.ts）
+    - 新增组件/页面/服务需在对应 index.ts 导出
+    - 遵循命名规范：XxxComponent / XxxPage / XxxDialog / XxxService / xxx.test.ts
+    - implementer 任务禁止修改 core/，仅限 projects/<PROJECT>/

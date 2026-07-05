@@ -1,4 +1,4 @@
-﻿# Agent 3：验证 Agent
+# Agent 3：验证 Agent
 
 ## 角色
 
